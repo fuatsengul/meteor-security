@@ -1,5 +1,10 @@
-ongoworks:security
+fuatsengul:security
 =========================
+This package will be a part of the ultimate security and user management pack fuatsengul:user-management.
+
+The user-management package is not ready yet, and will only support for semantic-ui for start. It will have very simple UIs, also role definitions.
+ 
+
 
 A Meteor package that provides a simple, logical, plain language API for defining write security on your MongoDB collections. Wraps the core allow/deny security.
 
@@ -48,6 +53,11 @@ Posts.permit('remove').ifHasRole('admin').apply();
 // update posts only if they don't try to change the `author` or `date` properties
 Posts.permit('update').ifHasRole('admin').apply();
 Posts.permit('update').ifLoggedIn().exceptProps(['author', 'date']).apply();
+
+//FSystem Integration
+Posts.permit('update').isAllowedForFunction('updatePosts').apply();
+
+
 ```
 
 ## Built-In Rule Chain Methods

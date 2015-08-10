@@ -1,5 +1,5 @@
 Package.describe({
-  name: "ongoworks:security",
+  name: "fuatsengul:security",
   summary: "Logical security for client-originated MongoDB collection operations",
   version: "1.2.0",
   git: "https://github.com/ongoworks/meteor-security.git"
