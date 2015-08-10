@@ -88,6 +88,26 @@ if (Package && Package["nicolaslopezj:roles"]) {
 }
 
 /*
+ *  FSystem Integration
+ *  added by Fuat Sengul
+ *  This is intentionally not a package
+*/
+
+if(typeof FSystem != undefined){
+  Security.defineMethod('isAllowedForFunction', {
+    fetch: [],
+    transform: null,
+    deny: function (type, arg, userId) {
+      if (!arg) {
+        throw new Error('ifHasRole security rule method requires an argument');
+      }
+      var _user = Meteor.users.findOne(userId);
+      return !FSystem.IsAllowedForFunction(_user, arg);
+    } 
+  });
+}
+
+/*
  * Specific Properties
  */
 
